@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="room" cx="50%" cy="42%" r="75%">
+      <stop offset="0" stop-color="#4a2f18"/>
+      <stop offset="0.45" stop-color="#31200f"/>
+      <stop offset="0.8" stop-color="#1a1008"/>
+      <stop offset="1" stop-color="#0d0703"/>
+    </radialGradient>
+    <radialGradient id="windowGlow" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#ffe9ad" stop-opacity="0.95"/>
+      <stop offset="0.6" stop-color="#f4c063" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#f4c063" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="candleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffdd93" stop-opacity="0.85"/>
+      <stop offset="0.4" stop-color="#ffb84d" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#ffb84d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3c4"/>
+      <stop offset="0.5" stop-color="#ffcf5c"/>
+      <stop offset="1" stop-color="#f08a1f"/>
+    </linearGradient>
+    <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6e421f"/>
+      <stop offset="1" stop-color="#2c1809"/>
+    </linearGradient>
+    <linearGradient id="candleWax" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a6a3a"/>
+      <stop offset="0.5" stop-color="#f3e2b6"/>
+      <stop offset="1" stop-color="#b89860"/>
+    </linearGradient>
+    <!-- Backlit wooden piece: dark on the left, warm rim light on the right -->
+    <linearGradient id="piece" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#160d05"/>
+      <stop offset="0.65" stop-color="#3a2410"/>
+      <stop offset="1" stop-color="#a4682c"/>
+    </linearGradient>
+    <linearGradient id="drape" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a02a24"/>
+      <stop offset="1" stop-color="#5e1512"/>
+    </linearGradient>
+    <pattern id="board" width="176" height="176" patternUnits="userSpaceOnUse">
+      <rect width="176" height="176" fill="#c99a5f"/>
+      <rect width="88" height="88" fill="#6b3f1e"/>
+      <rect x="88" y="88" width="88" height="88" fill="#6b3f1e"/>
+    </pattern>
+
+    <g id="pawn"><path d="M-30 56 L30 56 L21 38 L-21 38 Z"/><rect x="-22" y="32" width="44" height="8" rx="3"/><path d="M-16 38 C-23 8 -9 2 0 2 C9 2 23 8 16 38 Z"/><circle cx="0" cy="-12" r="16"/></g>
+    <g id="rook"><path d="M-38 60 L38 60 L28 42 L-28 42 Z"/><rect x="-30" y="34" width="60" height="10" rx="3"/><path d="M-24 34 L-18 -12 L18 -12 L24 34 Z"/><path d="M-28 -12 L-28 -40 L-17 -40 L-17 -27 L-6 -27 L-6 -40 L6 -40 L6 -27 L17 -27 L17 -40 L28 -40 L28 -12 Z"/></g>
+    <g id="bishop"><path d="M-30 58 L30 58 L21 40 L-21 40 Z"/><rect x="-22" y="34" width="44" height="8" rx="3"/><path d="M-18 34 C-24 6 -12 -6 0 -6 C12 -6 24 6 18 34 Z"/><path d="M0 -6 C-18 -14 -16 -44 0 -64 C16 -44 18 -14 0 -6 Z"/><circle cx="0" cy="-70" r="7"/></g>
+    <g id="king"><path d="M-40 62 L40 62 L29 42 L-29 42 Z"/><rect x="-32" y="36" width="64" height="10" rx="3"/><path d="M-26 42 C-34 -2 -16 -18 0 -18 C16 -18 34 -2 26 42 Z"/><ellipse cx="0" cy="-24" rx="17" ry="15"/><rect x="-5" y="-74" width="10" height="34" rx="2"/><rect x="-17" y="-63" width="34" height="10" rx="2"/></g>
+    <g id="queen"><path d="M-38 62 L38 62 L28 42 L-28 42 Z"/><rect x="-30" y="36" width="60" height="10" rx="3"/><path d="M-25 42 C-33 0 -16 -14 0 -14 C16 -14 33 0 25 42 Z"/><path d="M-26 -18 L-20 -60 L-9 -32 L0 -66 L9 -32 L20 -60 L26 -18 Z"/><circle cx="0" cy="-70" r="6"/></g>
+  </defs>
+
+  <!-- Room + vignette -->
+  <rect width="1600" height="1000" fill="url(#room)"/>
+  <rect width="1600" height="360" fill="#0f0a05" opacity="0.35"/>
+
+  <!-- Windows with warm daylight -->
+  <g>
+    <rect x="150" y="60" width="230" height="300" rx="10" fill="#120b05"/>
+    <rect x="164" y="74" width="202" height="272" fill="url(#windowGlow)"/>
+    <rect x="255" y="74" width="10" height="272" fill="#120b05"/>
+    <rect x="164" y="196" width="202" height="10" fill="#120b05"/>
+
+    <rect x="1240" y="40" width="250" height="320" rx="10" fill="#120b05"/>
+    <rect x="1256" y="56" width="218" height="288" fill="url(#windowGlow)"/>
+    <rect x="1358" y="56" width="10" height="288" fill="#120b05"/>
+    <rect x="1256" y="188" width="218" height="10" fill="#120b05"/>
+  </g>
+
+  <!-- God rays from the right window -->
+  <g fill="#ffe6a8" opacity="0.10">
+    <polygon points="1360,120 1470,120 720,1000 470,1000"/>
+    <polygon points="1300,150 1360,150 620,1000 470,1000"/>
+    <polygon points="1420,120 1490,120 980,1000 760,1000"/>
+  </g>
+
+  <!-- Red drape over the mantel -->
+  <path d="M520 210 Q760 150 900 200 Q1010 240 940 300 Q820 250 660 290 Q560 315 520 275 Z" fill="url(#drape)" opacity="0.9"/>
+
+  <!-- Book stacks (silhouettes) -->
+  <g fill="#1c120a">
+    <rect x="40" y="250" width="150" height="26" rx="3"/>
+    <rect x="52" y="224" width="132" height="26" rx="3"/>
+    <rect x="34" y="198" width="150" height="26" rx="3"/>
+    <rect x="1470" y="330" width="150" height="28" rx="3"/>
+    <rect x="1458" y="302" width="150" height="28" rx="3"/>
+    <rect x="1476" y="274" width="140" height="28" rx="3"/>
+  </g>
+
+  <!-- Table -->
+  <path d="M0 640 Q800 600 1600 640 L1600 1000 L0 1000 Z" fill="url(#table)"/>
+  <path d="M0 640 Q800 600 1600 640 L1600 660 Q800 620 0 660 Z" fill="#8a5a2c" opacity="0.6"/>
+
+  <!-- Chessboard on the table -->
+  <g transform="translate(800 860) scale(1.4 0.5)">
+    <rect x="-470" y="-470" width="940" height="940" rx="16" fill="#3a2210"/>
+    <rect x="-430" y="-430" width="860" height="860" fill="url(#board)"/>
+    <rect x="-430" y="-430" width="860" height="860" fill="none" stroke="#25150a" stroke-width="12"/>
+  </g>
+
+  <!-- Candle (left), with big warm glow -->
+  <circle cx="150" cy="470" r="240" fill="url(#candleGlow)"/>
+  <rect x="96" y="430" width="108" height="230" rx="10" fill="url(#candleWax)"/>
+  <ellipse cx="150" cy="430" rx="54" ry="14" fill="#fff0cf"/>
+  <rect x="147" y="392" width="6" height="24" fill="#2a1a0c"/>
+  <path d="M150 340 C132 366 132 392 150 400 C168 392 168 362 150 340 Z" fill="url(#flame)"/>
+  <ellipse cx="150" cy="378" rx="7" ry="14" fill="#fff6d8" opacity="0.9"/>
+
+  <!-- Piece shadows on the board -->
+  <g fill="#000000" opacity="0.30">
+    <ellipse cx="430" cy="700" rx="60" ry="14"/>
+    <ellipse cx="560" cy="694" rx="52" ry="12"/>
+    <ellipse cx="690" cy="690" rx="52" ry="12"/>
+    <ellipse cx="820" cy="686" rx="56" ry="13"/>
+    <ellipse cx="955" cy="690" rx="56" ry="13"/>
+    <ellipse cx="1085" cy="694" rx="52" ry="12"/>
+    <ellipse cx="1200" cy="700" rx="52" ry="12"/>
+  </g>
+
+  <!-- Backlit chess line-up -->
+  <g fill="url(#piece)" stroke="#c98a3e" stroke-width="1" stroke-opacity="0.35">
+    <use href="#rook"   transform="translate(430 660) scale(1.55)"/>
+    <use href="#bishop" transform="translate(560 640) scale(1.65)"/>
+    <use href="#queen"  transform="translate(690 610) scale(1.75)"/>
+    <use href="#king"   transform="translate(820 590) scale(2.05)"/>
+    <use href="#king"   transform="translate(955 605) scale(1.85)"/>
+    <use href="#bishop" transform="translate(1085 640) scale(1.6)"/>
+    <use href="#pawn"   transform="translate(1200 675) scale(1.4)"/>
+  </g>
+
+  <!-- Small open book on the board -->
+  <g transform="translate(1230 780)">
+    <path d="M-70 0 L0 -10 L70 0 L70 22 L0 12 L-70 22 Z" fill="#d8c49a"/>
+    <path d="M0 -10 L0 12" stroke="#a98d5e" stroke-width="2"/>
+  </g>
+
+  <!-- Final warm vignette -->
+  <rect width="1600" height="1000" fill="#0c0602" opacity="0"/>
+  <radialGradient id="vig" cx="50%" cy="46%" r="72%">
+    <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.6"/>
+  </radialGradient>
+  <rect width="1600" height="1000" fill="url(#vig)"/>
+</svg>

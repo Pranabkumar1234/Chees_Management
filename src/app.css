@@ -1,0 +1,451 @@
+:root {
+	/* Warm candlelit study theme */
+	--bg: #1a1109;
+	--bg-2: #241710;
+	--surface: #2a1c11;
+	--surface-2: #382613;
+	--border: #4d3620;
+	--border-soft: #3a2817;
+	--text: #f5e8d2;
+	--muted: #c2a986;
+
+	--accent: #f0b24d;
+	--accent-strong: #d98324;
+	--accent-2: #e8952d;
+	--grad: linear-gradient(135deg, #f4c063 0%, #e0912f 55%, #c86a1c 100%);
+	--grad-soft: linear-gradient(135deg, rgba(240, 178, 77, 0.2), rgba(200, 106, 28, 0.2));
+
+	--danger: #e06a52;
+	--success: #b9c46a;
+	--warn: #f2c14e;
+	--gold: #f2c14e;
+	--silver: #dfd3bd;
+	--bronze: #cf8a4a;
+
+	--copper: #d97b3a;
+	--ember: #e8952d;
+	--candle: #f4c968;
+
+	--radius: 14px;
+	--radius-sm: 9px;
+	--shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.7);
+	--shadow-lg: 0 22px 48px -18px rgba(180, 100, 30, 0.5);
+	font-family: 'Iowan Old Style', 'Palatino Linotype', 'Georgia', system-ui, serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	color: var(--text);
+	min-height: 100vh;
+}
+
+body {
+	/* Warm candlelit chess-study background (SVG in /static). The scene is
+	   already dark and moody, so only a light warm scrim is needed to keep
+	   foreground text and cards crisp. */
+	background-image:
+		linear-gradient(
+			180deg,
+			rgba(15, 9, 4, 0.55) 0%,
+			rgba(15, 9, 4, 0.22) 26%,
+			rgba(15, 9, 4, 0.28) 70%,
+			rgba(15, 9, 4, 0.5) 100%
+		),
+		url('/chess-bg.svg');
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: var(--bg);
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.15s;
+}
+a:hover {
+	color: #b7bcff;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+}
+
+.container {
+	max-width: 1040px;
+	margin: 0 auto;
+	padding: 1.75rem 1.25rem 4rem;
+}
+
+/* Navbar */
+.nav {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: rgba(26, 17, 9, 0.78);
+	backdrop-filter: blur(14px);
+	border-bottom: 1px solid var(--border-soft);
+}
+.nav-inner {
+	max-width: 1040px;
+	margin: 0 auto;
+	padding: 0.9rem 1.25rem;
+	display: flex;
+	align-items: center;
+	gap: 1.75rem;
+}
+.brand {
+	font-weight: 800;
+	font-size: 1.2rem;
+	letter-spacing: -0.01em;
+	background: var(--grad);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.brand:hover {
+	filter: brightness(1.15);
+}
+.nav-links {
+	display: flex;
+	gap: 0.35rem;
+}
+.nav-links a {
+	color: var(--muted);
+	font-weight: 600;
+	font-size: 0.92rem;
+	padding: 0.4rem 0.8rem;
+	border-radius: 999px;
+	transition: background 0.15s, color 0.15s;
+}
+.nav-links a:hover {
+	color: var(--text);
+	background: var(--surface-2);
+}
+.nav-links a.active {
+	color: #fff;
+	background: var(--grad-soft);
+	box-shadow: inset 0 0 0 1px rgba(240, 178, 77, 0.4);
+}
+
+/* Cards & panels */
+.card {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)) var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 1.35rem;
+	box-shadow: var(--shadow);
+}
+.grid {
+	display: grid;
+	gap: 1.1rem;
+}
+.grid-cards {
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* Links that are whole cards get a hover lift */
+a.card {
+	transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+a.card:hover {
+	transform: translateY(-3px);
+	border-color: rgba(240, 178, 77, 0.55);
+	box-shadow: var(--shadow-lg);
+}
+
+/* Forms */
+form {
+	margin: 0;
+}
+label {
+	display: block;
+	font-size: 0.78rem;
+	font-weight: 600;
+	color: var(--muted);
+	margin-bottom: 0.35rem;
+	letter-spacing: 0.01em;
+}
+input,
+select {
+	width: 100%;
+	padding: 0.6rem 0.75rem;
+	background: var(--bg);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	color: var(--text);
+	font-size: 0.95rem;
+	transition: border-color 0.15s, box-shadow 0.15s;
+}
+input::placeholder {
+	color: #927a58;
+}
+input:focus,
+select:focus {
+	outline: none;
+	border-color: var(--accent-strong);
+	box-shadow: 0 0 0 3px rgba(217, 131, 36, 0.28);
+}
+.field {
+	margin-bottom: 0.9rem;
+}
+.row {
+	display: flex;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+.row > * {
+	flex: 1;
+	min-width: 140px;
+}
+
+/* Buttons */
+button,
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	padding: 0.58rem 0.95rem;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	background: var(--surface-2);
+	color: var(--text);
+	font-size: 0.9rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.15s, border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+}
+button:hover,
+.btn:hover {
+	background: #46301a;
+	border-color: #64472a;
+}
+button:active,
+.btn:active {
+	transform: translateY(1px);
+}
+.btn-primary {
+	background: var(--grad);
+	border: none;
+	color: #3a1d05;
+	text-shadow: 0 1px 0 rgba(255, 240, 200, 0.35);
+	box-shadow: 0 8px 20px -8px rgba(200, 106, 28, 0.75);
+}
+.btn-primary:hover {
+	filter: brightness(1.08);
+	background: var(--grad);
+}
+.btn-danger {
+	color: var(--danger);
+	border-color: transparent;
+	background: transparent;
+	padding: 0.3rem 0.55rem;
+}
+.btn-danger:hover {
+	background: rgba(248, 113, 113, 0.14);
+	border-color: transparent;
+}
+.btn-sm {
+	padding: 0.38rem 0.65rem;
+	font-size: 0.82rem;
+}
+
+/* Tables */
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+th,
+td {
+	text-align: left;
+	padding: 0.7rem 0.75rem;
+	border-bottom: 1px solid var(--border-soft);
+	font-size: 0.93rem;
+}
+th {
+	color: var(--muted);
+	font-weight: 700;
+	font-size: 0.72rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	background: rgba(255, 255, 255, 0.02);
+}
+tbody tr {
+	transition: background 0.12s;
+}
+tbody tr:last-child td {
+	border-bottom: none;
+}
+tbody tr:hover {
+	background: rgba(240, 178, 77, 0.08);
+}
+
+/* Misc */
+.muted {
+	color: var(--muted);
+}
+.badge {
+	display: inline-block;
+	padding: 0.2rem 0.6rem;
+	border-radius: 999px;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border: 1px solid transparent;
+}
+.badge-draft {
+	background: rgba(194, 169, 134, 0.14);
+	color: var(--muted);
+	border-color: rgba(194, 169, 134, 0.28);
+}
+.badge-active {
+	background: rgba(240, 178, 77, 0.18);
+	color: var(--candle);
+	border-color: rgba(240, 178, 77, 0.35);
+}
+.badge-completed {
+	background: rgba(185, 196, 106, 0.16);
+	color: var(--success);
+	border-color: rgba(185, 196, 106, 0.32);
+}
+.page-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1.6rem;
+	flex-wrap: wrap;
+}
+.page-header h1 {
+	margin: 0;
+	font-size: 1.9rem;
+	letter-spacing: -0.02em;
+	text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+.page-header .muted {
+	text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+.section-title {
+	margin: 2.2rem 0 0.9rem;
+	font-size: 1.15rem;
+	letter-spacing: -0.01em;
+	text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+.error {
+	color: var(--danger);
+	font-size: 0.85rem;
+	margin-top: 0.5rem;
+}
+.empty {
+	color: var(--muted);
+	padding: 2.5rem 2rem;
+	text-align: center;
+	border: 1px dashed var(--border);
+	border-radius: var(--radius);
+	background: rgba(255, 255, 255, 0.015);
+}
+
+/* Stat cards (dashboard) */
+.stat {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
+}
+.stat .num {
+	font-size: 2.4rem;
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	line-height: 1.1;
+	background: var(--grad);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+.stat .lbl {
+	font-size: 0.78rem;
+	color: var(--muted);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-weight: 600;
+}
+.stat .ico {
+	position: absolute;
+	top: 1rem;
+	right: 1.1rem;
+	font-size: 1.6rem;
+	opacity: 0.9;
+	filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+}
+.stat::before {
+	content: '';
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 3px;
+	background: var(--grad);
+}
+.stat.stat-copper::before {
+	background: linear-gradient(135deg, #e0662a, #f0904a);
+}
+.stat.stat-copper .num {
+	background: linear-gradient(135deg, #e0662a, #f0904a);
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+.stat.stat-candle::before {
+	background: linear-gradient(135deg, #e8952d, #f7d873);
+}
+.stat.stat-candle .num {
+	background: linear-gradient(135deg, #e8952d, #f7d873);
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+/* Rankings medals */
+.medal {
+	font-size: 1.15rem;
+}
+.rank-1 td {
+	background: linear-gradient(90deg, rgba(242, 193, 78, 0.18), transparent 70%);
+}
+.rank-2 td {
+	background: linear-gradient(90deg, rgba(223, 211, 189, 0.12), transparent 70%);
+}
+.rank-3 td {
+	background: linear-gradient(90deg, rgba(207, 138, 74, 0.14), transparent 70%);
+}
+
+.inline-form {
+	display: inline;
+}
+
+/* Subtle entrance for cards */
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+.card {
+	animation: rise 0.35s ease both;
+}
